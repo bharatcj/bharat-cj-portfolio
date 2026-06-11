@@ -13,7 +13,7 @@
   --foreground: #e4e4e7;
   --accent-emerald: #34d399;
   --accent-teal: #2dd4bf;
-  --accent-amber: #f59e0b;
+  --accent-green: #4ade80;
 }
 
 html {
@@ -51,7 +51,7 @@ body {
 
 /* ---------- text ---------- */
 .gradient-text {
-  background: linear-gradient(120deg, #34d399 0%, #2dd4bf 55%, #fbbf24 110%);
+  background: linear-gradient(120deg, #6ee7b7 0%, #34d399 50%, #2dd4bf 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -82,8 +82,8 @@ body {
 .glow-teal {
   background: radial-gradient(closest-side, rgba(45, 212, 191, 0.16), transparent);
 }
-.glow-amber {
-  background: radial-gradient(closest-side, rgba(245, 158, 11, 0.12), transparent);
+.glow-green {
+  background: radial-gradient(closest-side, rgba(74, 222, 128, 0.12), transparent);
 }
 
 /* ---------- marquee ---------- */
@@ -102,7 +102,7 @@ body {
 
 /* ---------- timeline ---------- */
 .timeline-line {
-  background: linear-gradient(to bottom, #10b981, #f59e0b 60%, transparent);
+  background: linear-gradient(to bottom, #34d399, #0d9488 60%, transparent);
 }
 
 /* ---------- scrollbar ---------- */

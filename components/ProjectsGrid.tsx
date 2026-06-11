@@ -5,13 +5,13 @@ import { Stagger, StaggerItem } from "./motion";
 const accentGlow: Record<Project["accent"], string> = {
   emerald: "from-emerald-500/20 to-transparent",
   teal: "from-teal-500/20 to-transparent",
-  amber: "from-amber-500/20 to-transparent",
+  green: "from-green-400/20 to-transparent",
 };
 
 const accentText: Record<Project["accent"], string> = {
   emerald: "text-emerald-300",
   teal: "text-teal-300",
-  amber: "text-amber-300",
+  green: "text-green-300",
 };
 
 export default function ProjectsGrid() {

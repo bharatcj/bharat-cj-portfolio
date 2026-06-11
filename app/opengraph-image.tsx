@@ -61,11 +61,11 @@ export default function OgImage() {
             color: "#a1a1aa",
           }}
         >
-          <span style={{ color: "#fbbf24" }}>8+ years of engineering</span>
+          <span style={{ color: "#6ee7b7" }}>8+ years of engineering</span>
           <span>·</span>
           <span style={{ color: "#34d399" }}>87% of core backend</span>
           <span>·</span>
-          <span style={{ color: "#fbbf24" }}>5 AI surfaces</span>
+          <span style={{ color: "#2dd4bf" }}>5 AI surfaces</span>
         </div>
       </div>
     ),

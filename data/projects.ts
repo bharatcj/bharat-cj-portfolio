@@ -3,7 +3,7 @@ export type Project = {
   tagline: string;
   description: string;
   tech: string[];
-  accent: "emerald" | "teal" | "amber";
+  accent: "emerald" | "teal" | "green";
   link?: string;
 };
 
@@ -22,7 +22,7 @@ export const projects: Project[] = [
     description:
       "Single payment flow spanning Razorpay, Paytm, Stripe and Easebuzz with wallet co-funding, coupon engine, reward issuance and S2S webhook firewalling, engineered so gateway callbacks bypass the strict API firewall without weakening it.",
     tech: ["Razorpay", "Paytm", "Stripe", "Easebuzz", "MySQL"],
-    accent: "amber",
+    accent: "green",
   },
   {
     name: "Encrypted DB Backup System",
@@ -54,6 +54,6 @@ export const projects: Project[] = [
     description:
       "Re-architected the platform's perimeter: VPN-only admin domain, public/partner gateway segmentation, automated SSL via Cloudflare DNS-01, Apache hardening, centralized API firewall with app-secret validation, all while keeping payments and 16 cron automations running.",
     tech: ["Linux", "Apache", "Cloudflare", "Pritunl VPN", "Certbot"],
-    accent: "amber",
+    accent: "green",
   },
 ];
