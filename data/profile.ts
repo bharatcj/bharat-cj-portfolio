@@ -9,7 +9,7 @@ export const profile = {
   github: "https://github.com/bharatcj",
   resumePath: "/Bharat_CJ_Resume_2026.pdf",
   tagline:
-    "I lead engineering teams and ship entire platforms — payments, AI pipelines, secure infrastructure, and products that span web, mobile, and admin surfaces.",
+    "I lead engineering teams and ship entire platforms: payments, AI pipelines, secure infrastructure, and products that span web, mobile, and admin surfaces.",
   intro:
-    "7+ years across Python, PHP, React, Node and Flutter. Most recently led engineering at PartyWitty, India's party-booking platform (Mar–Jul 2026) — delivering across four product surfaces and the infrastructure underneath them.",
+    "8+ years across Python, PHP, React, Node and Flutter. Most recently led engineering at PartyWitty, India's party-booking platform, delivering across four product surfaces and the Linux infrastructure underneath them.",
 } as const;

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Bharat CJ — Team Lead · Full-Stack & AI Engineering";
+export const alt = "Bharat CJ | Team Lead · Full-Stack & AI Engineering";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,7 +15,7 @@ export default function OgImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "linear-gradient(135deg, #0a0a0f 0%, #0d1b26 60%, #0b2436 100%)",
+          background: "linear-gradient(135deg, #0a0a0f 0%, #07120d 60%, #0a2018 100%)",
           color: "white",
           fontFamily: "sans-serif",
         }}
@@ -26,7 +26,7 @@ export default function OgImage() {
             alignItems: "center",
             gap: "12px",
             fontSize: 26,
-            color: "#22d3ee",
+            color: "#34d399",
             letterSpacing: "4px",
           }}
         >
@@ -61,9 +61,9 @@ export default function OgImage() {
             color: "#a1a1aa",
           }}
         >
-          <span style={{ color: "#38bdf8" }}>1,186 commits / 4 months</span>
+          <span style={{ color: "#fbbf24" }}>8+ years of engineering</span>
           <span>·</span>
-          <span style={{ color: "#22d3ee" }}>87% of core backend</span>
+          <span style={{ color: "#34d399" }}>87% of core backend</span>
           <span>·</span>
           <span style={{ color: "#fbbf24" }}>5 AI surfaces</span>
         </div>

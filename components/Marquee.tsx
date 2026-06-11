@@ -12,7 +12,7 @@ export default function Marquee() {
             key={`${t}-${i}`}
             className="mono flex items-center gap-10 text-sm tracking-widest whitespace-nowrap text-zinc-600 uppercase"
           >
-            {t} <span className="text-cyan-500/60">◆</span>
+            {t} <span className="text-emerald-500/60">◆</span>
           </span>
         ))}
       </div>

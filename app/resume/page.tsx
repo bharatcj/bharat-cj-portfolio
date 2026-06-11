@@ -21,7 +21,7 @@ export default function ResumePage() {
         <a
           href={profile.resumePath}
           download="Bharat_CJ_Resume.pdf"
-          className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition-transform hover:scale-[1.04]"
+          className="rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-transform hover:scale-[1.04]"
         >
           Download PDF ↓
         </a>

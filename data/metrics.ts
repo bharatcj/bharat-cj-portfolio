@@ -7,22 +7,22 @@ export type Metric = {
 
 export const metrics: Metric[] = [
   {
-    value: 7,
+    value: 8,
     suffix: "+",
     label: "Years of engineering",
-    detail: "Full-stack, AI & automation since 2018",
+    detail: "Full-stack, AI and Linux infrastructure since 2018",
   },
   {
-    value: 1186,
-    suffix: "",
-    label: "Commits in 4 months",
-    detail: "Across 10 PartyWitty repositories",
+    value: 10,
+    suffix: "+",
+    label: "Platform repositories",
+    detail: "Web, mobile, admin, partner and infrastructure",
   },
   {
     value: 87,
     suffix: "%",
     label: "Of core backend authored",
-    detail: "889 of 1,017 commits · ~75 controllers",
+    detail: "~75 controllers owned end to end",
   },
   {
     value: 4,
@@ -40,6 +40,6 @@ export const metrics: Metric[] = [
     value: 95,
     suffix: "%",
     label: "AI extraction accuracy",
-    detail: "OCR + GPT-4 document pipelines",
+    detail: "OCR and GPT-4 document pipelines",
   },
 ];

@@ -3,14 +3,14 @@ import SectionHeading from "./SectionHeading";
 import { Stagger, StaggerItem } from "./motion";
 
 const accentGlow: Record<Project["accent"], string> = {
-  cyan: "from-cyan-500/20 to-transparent",
-  blue: "from-blue-500/20 to-transparent",
+  emerald: "from-emerald-500/20 to-transparent",
+  teal: "from-teal-500/20 to-transparent",
   amber: "from-amber-500/20 to-transparent",
 };
 
 const accentText: Record<Project["accent"], string> = {
-  cyan: "text-cyan-300",
-  blue: "text-sky-300",
+  emerald: "text-emerald-300",
+  teal: "text-teal-300",
   amber: "text-amber-300",
 };
 
@@ -20,7 +20,7 @@ export default function ProjectsGrid() {
       <SectionHeading
         eyebrow="Selected Work"
         title="Things I've shipped"
-        description="Production systems with real users and real stakes — not weekend demos."
+        description="Production systems with real users and real stakes, not weekend demos."
       />
 
       <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

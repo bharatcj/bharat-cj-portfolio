@@ -5,7 +5,7 @@ import { FadeIn } from "./motion";
 export default function CaseStudy() {
   return (
     <section id="case-study" className="relative border-y border-white/5 bg-white/[0.015] py-28">
-      <div className="glow-cyan absolute top-0 left-1/4 h-[28rem] w-[28rem] rounded-full opacity-60" />
+      <div className="glow-emerald absolute top-0 left-1/4 h-[28rem] w-[28rem] rounded-full opacity-60" />
       <div className="relative mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="Case Study"
@@ -24,7 +24,7 @@ export default function CaseStudy() {
                   <h3 className="heading text-2xl font-bold text-white">
                     {ch.title}
                   </h3>
-                  <p className="mono mt-1 text-xs tracking-[0.2em] text-cyan-400 uppercase">
+                  <p className="mono mt-1 text-xs tracking-[0.2em] text-emerald-400 uppercase">
                     {ch.subtitle}
                   </p>
                   <div className="mt-5 space-y-4">
