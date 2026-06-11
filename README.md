@@ -1,6 +1,6 @@
-# Bharat CJ — Portfolio
+# Bharat CJ | Portfolio
 
-Personal portfolio of **Bharat Chejay J** — Team Lead · Full-Stack & AI Engineering.
+Personal portfolio of **Bharat Chejay J**, Team Lead · Full-Stack & AI Engineering.
 
 🔗 **Live:** https://bharat-cj.vercel.app
 
@@ -18,4 +18,4 @@ npm install
 npm run dev
 ```
 
-All content lives in typed data files under `data/` — edit those to update the site.
+All content lives in typed data files under `data/`. Edit those to update the site.
