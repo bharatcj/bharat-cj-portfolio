@@ -46,7 +46,7 @@ export default function Nav() {
         <a
           href={profile.resumePath}
           download
-          className="rounded-full border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-medium text-violet-300 transition-all hover:border-violet-400 hover:bg-violet-500/20 hover:text-white"
+          className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-300 transition-all hover:border-cyan-400 hover:bg-cyan-500/20 hover:text-white"
         >
           Resume ↓
         </a>

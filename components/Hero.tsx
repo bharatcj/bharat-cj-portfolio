@@ -11,8 +11,8 @@ export default function Hero() {
     >
       {/* background layers */}
       <div className="bg-grid absolute inset-0" />
-      <div className="glow-violet absolute -top-40 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full" />
-      <div className="glow-fuchsia absolute top-1/3 -right-40 h-[30rem] w-[30rem] rounded-full" />
+      <div className="glow-cyan absolute -top-40 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full" />
+      <div className="glow-blue absolute top-1/3 -right-40 h-[30rem] w-[30rem] rounded-full" />
       <div className="glow-amber absolute bottom-0 -left-32 h-[26rem] w-[26rem] rounded-full" />
 
       <div className="relative mx-auto w-full max-w-6xl px-6 pt-28 pb-20">
@@ -27,7 +27,7 @@ export default function Hero() {
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
             </span>
             <span className="text-sm text-zinc-300">
-              Team Lead @ {profile.company} · {profile.location}
+              Team Lead · {profile.location}
             </span>
           </div>
         </motion.div>
@@ -59,7 +59,7 @@ export default function Hero() {
         >
           <a
             href="#case-study"
-            className="rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition-transform hover:scale-[1.04]"
+            className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition-transform hover:scale-[1.04]"
           >
             See what I&apos;ve shipped
           </a>

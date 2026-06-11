@@ -3,7 +3,7 @@ export type Project = {
   tagline: string;
   description: string;
   tech: string[];
-  accent: "violet" | "fuchsia" | "amber";
+  accent: "cyan" | "blue" | "amber";
   link?: string;
 };
 
@@ -12,9 +12,9 @@ export const projects: Project[] = [
     name: "PartyWitty Platform",
     tagline: "One booking platform, four product surfaces",
     description:
-      "India's party-booking platform: venue discovery, table & event bookings, group bookings and payouts. I lead engineering across the React web app, Flutter customer and partner apps, and the CodeIgniter + Node backends — 1,186 commits in my first four months.",
+      "India's party-booking platform: venue discovery, table & event bookings, group bookings and payouts. I led engineering across the React web app, Flutter customer and partner apps, and the CodeIgniter + Node backends — 1,186 commits in four months.",
     tech: ["PHP", "Node.js", "React", "Flutter", "MySQL", "WebSockets"],
-    accent: "violet",
+    accent: "cyan",
   },
   {
     name: "Unified Payments & Wallet",
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     description:
       "Solo-built backup platform: AES-256-GCM encrypted MySQL dumps shipped to Cloudflare R2 with daily/weekly/monthly retention, TOTP-MFA dashboard, one-click restore, audit logs and email health reports.",
     tech: ["Node.js", "AES-256-GCM", "Cloudflare R2", "TOTP MFA"],
-    accent: "fuchsia",
+    accent: "blue",
   },
   {
     name: "AI Call Intelligence",
@@ -38,7 +38,7 @@ export const projects: Project[] = [
     description:
       "Call-center pipeline that pulls Smartflo recordings, transcribes them with AssemblyAI, summarizes with a locally-hosted LLM (Ollama), and emails AI-generated daily reports — async queue with retry workers.",
     tech: ["Python", "AssemblyAI", "Ollama", "PHP", "Cron"],
-    accent: "violet",
+    accent: "cyan",
   },
   {
     name: "WhatsApp AI Concierge",
@@ -46,7 +46,7 @@ export const projects: Project[] = [
     description:
       "WhatsApp bot on Meta Cloud API wired to Dify AI — persistent conversation sessions, message deduplication, per-user queues, typing indicators and full conversation logging to MySQL.",
     tech: ["Node.js", "Meta Cloud API", "Dify AI", "MySQL"],
-    accent: "fuchsia",
+    accent: "blue",
   },
   {
     name: "Infrastructure Security Overhaul",

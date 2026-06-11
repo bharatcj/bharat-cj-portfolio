@@ -3,14 +3,14 @@ import SectionHeading from "./SectionHeading";
 import { Stagger, StaggerItem } from "./motion";
 
 const accentGlow: Record<Project["accent"], string> = {
-  violet: "from-violet-500/20 to-transparent",
-  fuchsia: "from-fuchsia-500/20 to-transparent",
+  cyan: "from-cyan-500/20 to-transparent",
+  blue: "from-blue-500/20 to-transparent",
   amber: "from-amber-500/20 to-transparent",
 };
 
 const accentText: Record<Project["accent"], string> = {
-  violet: "text-violet-300",
-  fuchsia: "text-fuchsia-300",
+  cyan: "text-cyan-300",
+  blue: "text-sky-300",
   amber: "text-amber-300",
 };
 

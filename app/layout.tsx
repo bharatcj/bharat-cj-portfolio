@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://bharat-cj.vercel.app"),
   title: "Bharat CJ — Team Lead · Full-Stack & AI Engineering",
   description:
-    "Team Lead at PartyWitty. 7+ years across Python, PHP, React, Node, Flutter and AI — payments, LLM pipelines, secure infrastructure, and multi-surface product delivery.",
+    "Team Lead — Full-Stack & AI Engineering. 7+ years across Python, PHP, React, Node, Flutter and AI: payments, LLM pipelines, secure infrastructure, and multi-surface product delivery.",
   keywords: [
     "Bharat CJ",
     "Bharat Chejay",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bharat CJ — Team Lead · Full-Stack & AI Engineering",
     description:
-      "7+ years building platforms: payments, AI pipelines, secure infrastructure. Currently leading engineering at PartyWitty.",
+      "7+ years building platforms: payments, AI pipelines, secure infrastructure, and teams that ship.",
     type: "website",
   },
   twitter: {

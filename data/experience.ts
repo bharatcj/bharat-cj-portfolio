@@ -13,14 +13,14 @@ export const experience: Experience[] = [
   {
     company: "PartyWitty",
     role: "Team Lead",
-    period: "Mar 2026 — Present",
+    period: "Mar 2026 — Jul 2026",
     location: "India",
     current: true,
     summary:
-      "Leading engineering for India's party-booking platform across four product surfaces — React web, Flutter customer & partner apps, and PHP/Node backends.",
+      "Led engineering for India's party-booking platform across four product surfaces — React web, Flutter customer & partner apps, and PHP/Node backends.",
     highlights: [
-      "Lead a cross-stack team of PHP, React, Node and Flutter developers across 4 product boards — while personally authoring 1,186 commits across 10 repos in 4 months, 48% of all engineering commits.",
-      "Own the CodeIgniter 4 booking-and-payments backend (~75 controllers): 87% of commits, while reviewing and merging team changes for conflict-free production releases.",
+      "Led a cross-stack team of PHP, React, Node and Flutter developers across 4 product boards — while personally authoring 1,186 commits across 10 repos in 4 months, 48% of all engineering commits.",
+      "Owned the CodeIgniter 4 booking-and-payments backend (~75 controllers): 87% of commits, while reviewing and merging team changes for conflict-free production releases.",
       "Unified 4 payment gateways (Razorpay, Paytm, Easebuzz, Stripe) behind one checkout-verify flow; rebuilt Paytm S2S webhooks and made payout settlement atomic.",
       "Shipped 5 AI surfaces: call transcription + summaries (AssemblyAI + self-hosted Ollama) with daily per-agent digests, a WhatsApp Dify bot built solo in one day, web AI chat, review moderation, and resume screening.",
       "Drove a 46-point security overhaul in one week — global route middleware, VPN-gated admin, hardened firewall — then unified JWT sessions across React, Node and PHP.",

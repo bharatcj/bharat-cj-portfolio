@@ -8,7 +8,7 @@ export default function SkillsGrid() {
       id="skills"
       className="relative border-y border-white/5 bg-white/[0.015] py-28"
     >
-      <div className="glow-fuchsia absolute right-0 bottom-0 h-[24rem] w-[24rem] rounded-full opacity-50" />
+      <div className="glow-blue absolute right-0 bottom-0 h-[24rem] w-[24rem] rounded-full opacity-50" />
       <div className="relative mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="Capabilities"
@@ -27,7 +27,7 @@ export default function SkillsGrid() {
                   {g.skills.map((s) => (
                     <span
                       key={s}
-                      className="rounded-full border border-white/5 bg-white/[0.03] px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-violet-500/40 hover:text-white"
+                      className="rounded-full border border-white/5 bg-white/[0.03] px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-cyan-500/40 hover:text-white"
                     >
                       {s}
                     </span>

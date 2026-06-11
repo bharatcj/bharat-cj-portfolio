@@ -8,9 +8,9 @@ export type CaseStudyChapter = {
 
 export const caseStudyIntro = {
   company: "PartyWitty",
-  role: "Team Lead · Mar 2026 — Present",
+  role: "Team Lead · Mar 2026 — Jul 2026",
   context:
-    "India's party & venue booking platform — a CodeIgniter 4 core, React web app, Node services, and Flutter customer & partner apps. I lead engineering across all four product boards while staying deep in the code: 1,186 commits across 10 repositories in my first four months.",
+    "India's party & venue booking platform — a CodeIgniter 4 core, React web app, Node services, and Flutter customer & partner apps. I led engineering across all four product boards while staying deep in the code: 1,186 commits across 10 repositories in four months.",
 };
 
 export const caseStudyChapters: CaseStudyChapter[] = [

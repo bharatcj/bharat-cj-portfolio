@@ -11,8 +11,8 @@
 :root {
   --background: #0a0a0f;
   --foreground: #e4e4e7;
-  --accent-violet: #8b5cf6;
-  --accent-fuchsia: #d946ef;
+  --accent-cyan: #22d3ee;
+  --accent-blue: #3b82f6;
   --accent-amber: #f59e0b;
 }
 
@@ -28,7 +28,7 @@ body {
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.4);
+  background: rgba(34, 211, 238, 0.35);
   color: #fff;
 }
 
@@ -44,14 +44,14 @@ body {
   transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .glass-hover:hover {
-  border-color: rgba(139, 92, 246, 0.35);
+  border-color: rgba(34, 211, 238, 0.35);
   transform: translateY(-3px);
-  box-shadow: 0 18px 50px -18px rgba(139, 92, 246, 0.35);
+  box-shadow: 0 18px 50px -18px rgba(34, 211, 238, 0.3);
 }
 
 /* ---------- text ---------- */
 .gradient-text {
-  background: linear-gradient(120deg, #a78bfa 0%, #e879f9 55%, #fbbf24 110%);
+  background: linear-gradient(120deg, #22d3ee 0%, #60a5fa 55%, #fbbf24 110%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -76,11 +76,11 @@ body {
   -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 55%, transparent 100%);
 }
 
-.glow-violet {
-  background: radial-gradient(closest-side, rgba(139, 92, 246, 0.28), transparent);
+.glow-cyan {
+  background: radial-gradient(closest-side, rgba(34, 211, 238, 0.25), transparent);
 }
-.glow-fuchsia {
-  background: radial-gradient(closest-side, rgba(217, 70, 239, 0.18), transparent);
+.glow-blue {
+  background: radial-gradient(closest-side, rgba(59, 130, 246, 0.18), transparent);
 }
 .glow-amber {
   background: radial-gradient(closest-side, rgba(245, 158, 11, 0.12), transparent);
@@ -102,7 +102,7 @@ body {
 
 /* ---------- timeline ---------- */
 .timeline-line {
-  background: linear-gradient(to bottom, #8b5cf6, #d946ef 60%, transparent);
+  background: linear-gradient(to bottom, #06b6d4, #3b82f6 60%, transparent);
 }
 
 /* ---------- scrollbar ---------- */

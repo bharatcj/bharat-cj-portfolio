@@ -11,7 +11,7 @@ export default function SectionHeading({
 }) {
   return (
     <FadeIn className="mb-14">
-      <p className="mono mb-3 text-sm tracking-[0.25em] text-violet-400 uppercase">
+      <p className="mono mb-3 text-sm tracking-[0.25em] text-cyan-400 uppercase">
         {eyebrow}
       </p>
       <h2 className="heading text-3xl font-bold text-white sm:text-4xl md:text-5xl">

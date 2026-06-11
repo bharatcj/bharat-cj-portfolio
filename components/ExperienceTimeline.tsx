@@ -27,7 +27,7 @@ export default function ExperienceTimeline() {
                   <span
                     className={`block h-4 w-4 rounded-full border-2 ${
                       exp.current
-                        ? "border-violet-400 bg-violet-500 shadow-[0_0_18px_rgba(139,92,246,0.8)]"
+                        ? "border-cyan-400 bg-cyan-500 shadow-[0_0_18px_rgba(34,211,238,0.8)]"
                         : "border-zinc-600 bg-zinc-800"
                     }`}
                   />
@@ -42,14 +42,14 @@ export default function ExperienceTimeline() {
                       <span
                         className={`mono rounded-full px-3 py-1 text-xs ${
                           exp.current
-                            ? "bg-violet-500/15 text-violet-300"
+                            ? "bg-cyan-500/15 text-cyan-300"
                             : "bg-white/5 text-zinc-400"
                         }`}
                       >
                         {exp.period}
                       </span>
                     </div>
-                    <p className="mt-1 text-sm font-medium text-fuchsia-300/90">
+                    <p className="mt-1 text-sm font-medium text-sky-300/90">
                       {exp.role} · {exp.location}
                     </p>
                     <p className="mt-4 text-sm leading-relaxed text-zinc-400">
@@ -61,7 +61,7 @@ export default function ExperienceTimeline() {
                           key={h}
                           className="flex gap-2.5 text-sm leading-relaxed text-zinc-300"
                         >
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-violet-400 to-fuchsia-400" />
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400" />
                           {h}
                         </li>
                       ))}

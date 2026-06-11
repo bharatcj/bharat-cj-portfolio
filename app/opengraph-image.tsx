@@ -15,7 +15,7 @@ export default function OgImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "linear-gradient(135deg, #0a0a0f 0%, #16121f 60%, #1d1430 100%)",
+          background: "linear-gradient(135deg, #0a0a0f 0%, #0d1b26 60%, #0b2436 100%)",
           color: "white",
           fontFamily: "sans-serif",
         }}
@@ -26,7 +26,7 @@ export default function OgImage() {
             alignItems: "center",
             gap: "12px",
             fontSize: 26,
-            color: "#a78bfa",
+            color: "#22d3ee",
             letterSpacing: "4px",
           }}
         >
@@ -61,9 +61,9 @@ export default function OgImage() {
             color: "#a1a1aa",
           }}
         >
-          <span style={{ color: "#e879f9" }}>1,186 commits / 4 months</span>
+          <span style={{ color: "#38bdf8" }}>1,186 commits / 4 months</span>
           <span>·</span>
-          <span style={{ color: "#a78bfa" }}>87% of core backend</span>
+          <span style={{ color: "#22d3ee" }}>87% of core backend</span>
           <span>·</span>
           <span style={{ color: "#fbbf24" }}>5 AI surfaces</span>
         </div>
