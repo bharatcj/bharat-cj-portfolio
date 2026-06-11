@@ -7,7 +7,7 @@ export default function ExperienceTimeline() {
     <section id="experience" className="relative mx-auto max-w-6xl px-6 py-28">
       <SectionHeading
         eyebrow="Experience"
-        title="Seven years, three chapters"
+        title="Eight years, three chapters"
         description="From full-stack delivery, through AI engineering, to leading a multi-platform product team."
       />
 
