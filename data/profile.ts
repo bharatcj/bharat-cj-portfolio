@@ -7,7 +7,7 @@ export const profile = {
   email: "bharatchijay@gmail.com",
   linkedin: "https://www.linkedin.com/in/bharat-cj/",
   github: "https://github.com/bharatcj",
-  resumePath: "/Bharat_CJ_Resume_2026.pdf",
+  resumePath: "/Bharat_CJ_Resume.pdf",
   tagline:
     "I lead engineering teams and ship entire platforms: payments, AI pipelines, secure infrastructure, and products that span web, mobile, and admin surfaces.",
   intro:
