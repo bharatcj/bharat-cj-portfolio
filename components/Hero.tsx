@@ -1,19 +1,39 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 import { profile } from "@/data/profile";
+import { GlowOrb } from "./motion";
 
 export default function Hero() {
+  const reduce = useReducedMotion();
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+  const sx = useSpring(px, { stiffness: 120, damping: 20 });
+  const sy = useSpring(py, { stiffness: 120, damping: 20 });
+
+  function onMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (reduce) return;
+    const x = (e.clientX / window.innerWidth - 0.5) * 2;
+    const y = (e.clientY / window.innerHeight - 0.5) * 2;
+    px.set(x * 8);
+    py.set(y * 8);
+  }
+
   return (
     <section
       id="top"
+      onMouseMove={onMove}
       className="relative flex min-h-screen items-center overflow-hidden"
     >
-      {/* background layers */}
       <div className="bg-grid absolute inset-0" />
-      <div className="glow-emerald absolute -top-40 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full" />
-      <div className="glow-teal absolute top-1/3 -right-40 h-[30rem] w-[30rem] rounded-full" />
-      <div className="glow-green absolute bottom-0 -left-32 h-[26rem] w-[26rem] rounded-full" />
+      <GlowOrb className="glow-emerald absolute -top-40 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full" />
+      <GlowOrb className="glow-teal absolute top-1/3 -right-40 h-[30rem] w-[30rem] rounded-full" delay={3} />
+      <GlowOrb className="glow-green absolute bottom-0 -left-32 h-[26rem] w-[26rem] rounded-full" delay={6} />
+
+      <motion.div
+        className="pointer-events-none absolute inset-0"
+        style={{ x: sx, y: sy }}
+      />
 
       <div className="relative mx-auto w-full max-w-6xl px-6 pt-28 pb-20">
         <motion.div
@@ -34,11 +54,12 @@ export default function Hero() {
 
         <motion.h1
           className="heading max-w-4xl text-5xl leading-[1.05] font-bold text-white sm:text-6xl md:text-7xl"
+          style={{ x: sx, y: sy }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.12, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
-          I build & lead teams that ship{" "}
+          I build &amp; lead teams that ship{" "}
           <span className="gradient-text">entire platforms.</span>
         </motion.h1>
 

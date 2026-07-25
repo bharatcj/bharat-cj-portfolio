@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import MetricsBand from "@/components/MetricsBand";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
-import CaseStudy from "@/components/CaseStudy";
+import WorkShowcase from "@/components/WorkShowcase";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import SkillsGrid from "@/components/SkillsGrid";
 import Contact from "@/components/Contact";
@@ -17,7 +17,7 @@ export default function Home() {
       <Marquee />
       <MetricsBand />
       <ExperienceTimeline />
-      <CaseStudy />
+      <WorkShowcase />
       <ProjectsGrid />
       <SkillsGrid />
       <Contact />

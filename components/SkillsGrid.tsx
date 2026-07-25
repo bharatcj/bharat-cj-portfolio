@@ -16,10 +16,10 @@ export default function SkillsGrid() {
           description="Leadership to Linux: everything needed to take a product from idea to production."
         />
 
-        <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((g) => (
             <StaggerItem key={g.title}>
-              <div className="glass glass-hover h-full rounded-2xl p-7">
+              <div className="glass glass-hover sheen h-full rounded-2xl p-7">
                 <h3 className="heading text-base font-bold text-white">
                   {g.title}
                 </h3>

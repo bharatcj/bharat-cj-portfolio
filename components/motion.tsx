@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, type ReactNode } from "react";
 
 export function FadeIn({
@@ -109,5 +109,76 @@ export function CountUp({
       {value.toLocaleString("en-IN")}
       {suffix}
     </span>
+  );
+}
+
+export function TiltCard({
+  children,
+  className,
+  max = 6,
+}: {
+  children: ReactNode;
+  className?: string;
+  max?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const rx = useMotionValue(0);
+  const ry = useMotionValue(0);
+  const srx = useSpring(rx, { stiffness: 200, damping: 18 });
+  const sry = useSpring(ry, { stiffness: 200, damping: 18 });
+
+  function onMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (reduce || !ref.current) return;
+    const r = ref.current.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    ry.set(px * max * 2);
+    rx.set(-py * max * 2);
+  }
+
+  function onLeave() {
+    rx.set(0);
+    ry.set(0);
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      style={{ rotateX: srx, rotateY: sry, transformPerspective: 1000 }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function GlowOrb({
+  className,
+  delay = 0,
+}: {
+  className?: string;
+  delay?: number;
+}) {
+  if (useReducedMotion()) {
+    return <div className={className} />;
+  }
+  return (
+    <motion.div
+      className={className}
+      animate={{
+        x: [0, 24, -16, 0],
+        y: [0, -18, 12, 0],
+        scale: [1, 1.06, 0.96, 1],
+      }}
+      transition={{
+        duration: 18,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay,
+      }}
+    />
   );
 }
