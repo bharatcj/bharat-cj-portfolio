@@ -3,9 +3,9 @@ import Link from "next/link";
 import { profile } from "@/data/profile";
 
 export const metadata: Metadata = {
-  title: "Resume — Bharat CJ",
+  title: "Resume | Bharat CJ",
   description:
-    "Resume of Bharat Chejay J — Team Lead, Full-Stack & AI Engineering.",
+    "Resume of Bharat Chejay J. Team Lead, Full-Stack & AI Engineering.",
 };
 
 export default function ResumePage() {

@@ -22,7 +22,7 @@ export default function ExperienceTimeline() {
       <SectionHeading
         eyebrow="Experience"
         title="Eight years, three chapters"
-        description="Where and when — the work itself lives below."
+        description="Where and when. The work itself lives below."
       />
 
       <div className="relative mt-16">
