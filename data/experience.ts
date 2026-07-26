@@ -12,11 +12,10 @@ export const experience: Experience[] = [
   {
     company: "PartyWitty",
     role: "Team Lead",
-    period: "Mar 2026 - Jul 2026",
+    period: "Mar 2026 - Jun 2026",
     location: "India",
     type: "Full-time",
     accent: "emerald",
-    current: true,
   },
   {
     company: "Nablasol",
