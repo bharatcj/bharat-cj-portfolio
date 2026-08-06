@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bharat-cj.vercel.app"),
+  metadataBase: new URL("https://bharatcj.tech"),
   title: "Bharat CJ | Team Lead · Full-Stack & AI Engineering",
   description:
     "Team Lead, Full-Stack & AI Engineering. 8+ years across Python, PHP, React, Node, Flutter and AI: payments, LLM pipelines, secure infrastructure, and multi-surface product delivery.",

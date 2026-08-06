@@ -1,6 +1,13 @@
 "use client";
 
-import { motion, useInView, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionTemplate,
+  useMotionValue,
+  useSpring,
+  useReducedMotion,
+} from "framer-motion";
 import { useEffect, useRef, type ReactNode } from "react";
 
 export function FadeIn({
@@ -116,17 +123,24 @@ export function TiltCard({
   children,
   className,
   max = 6,
+  glare = false,
 }: {
   children: ReactNode;
   className?: string;
   max?: number;
+  glare?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const rx = useMotionValue(0);
   const ry = useMotionValue(0);
+  const gx = useMotionValue(50);
+  const gy = useMotionValue(50);
+  const go = useMotionValue(0);
   const srx = useSpring(rx, { stiffness: 200, damping: 18 });
   const sry = useSpring(ry, { stiffness: 200, damping: 18 });
+  const sgo = useSpring(go, { stiffness: 160, damping: 24 });
+  const glareBg = useMotionTemplate`radial-gradient(460px at ${gx}% ${gy}%, rgba(110, 231, 183, 0.11), transparent 70%)`;
 
   function onMove(e: React.MouseEvent<HTMLDivElement>) {
     if (reduce || !ref.current) return;
@@ -135,11 +149,15 @@ export function TiltCard({
     const py = (e.clientY - r.top) / r.height - 0.5;
     ry.set(px * max * 2);
     rx.set(-py * max * 2);
+    gx.set((px + 0.5) * 100);
+    gy.set((py + 0.5) * 100);
+    go.set(1);
   }
 
   function onLeave() {
     rx.set(0);
     ry.set(0);
+    go.set(0);
   }
 
   return (
@@ -151,7 +169,92 @@ export function TiltCard({
       className={className}
     >
       {children}
+      {glare && !reduce && (
+        <motion.div
+          aria-hidden="true"
+          style={{ background: glareBg, opacity: sgo }}
+          className="pointer-events-none absolute inset-0 rounded-[inherit]"
+        />
+      )}
     </motion.div>
+  );
+}
+
+export function Magnetic({
+  children,
+  className,
+  strength = 0.3,
+}: {
+  children: ReactNode;
+  className?: string;
+  strength?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const sx = useSpring(x, { stiffness: 180, damping: 15, mass: 0.4 });
+  const sy = useSpring(y, { stiffness: 180, damping: 15, mass: 0.4 });
+
+  function onMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (reduce || !ref.current) return;
+    const r = ref.current.getBoundingClientRect();
+    x.set((e.clientX - r.left - r.width / 2) * strength);
+    y.set((e.clientY - r.top - r.height / 2) * strength);
+  }
+
+  function onLeave() {
+    x.set(0);
+    y.set(0);
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      style={{ x: sx, y: sy }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function WordReveal({
+  text,
+  delay = 0,
+  stagger = 0.06,
+  innerClassName,
+}: {
+  text: string;
+  delay?: number;
+  stagger?: number;
+  innerClassName?: string;
+}) {
+  const words = text.split(" ");
+  return (
+    <>
+      {words.map((word, i) => (
+        <span key={`${word}-${i}`}>
+          <span className="inline-block overflow-hidden align-bottom">
+            <motion.span
+              className={`inline-block ${innerClassName ?? ""}`}
+              initial={{ y: "115%" }}
+              animate={{ y: "0%" }}
+              transition={{
+                duration: 0.75,
+                delay: delay + i * stagger,
+                ease: [0.21, 0.47, 0.32, 0.98],
+              }}
+            >
+              {word}
+            </motion.span>
+          </span>
+          {i < words.length - 1 ? " " : null}
+        </span>
+      ))}
+    </>
   );
 }
 

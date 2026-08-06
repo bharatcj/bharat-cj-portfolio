@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { useRef } from "react";
 import { experience, type Experience } from "@/data/experience";
 import SectionHeading from "./SectionHeading";
 
@@ -17,6 +18,13 @@ const dotClass: Record<Experience["accent"], string> = {
 };
 
 export default function ExperienceTimeline() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: trackRef,
+    offset: ["start 78%", "end 40%"],
+  });
+  const scaleY = useSpring(scrollYProgress, { stiffness: 90, damping: 24 });
+
   return (
     <section id="experience" className="relative mx-auto max-w-6xl px-6 py-28">
       <SectionHeading
@@ -25,8 +33,11 @@ export default function ExperienceTimeline() {
         description="Where and when. The work itself lives below."
       />
 
-      <div className="relative mt-16">
-        <div className="timeline-line absolute top-0 bottom-0 left-[7px] w-px md:left-1/2 md:-translate-x-1/2" />
+      <div ref={trackRef} className="relative mt-16">
+        <motion.div
+          style={{ scaleY }}
+          className="timeline-line absolute top-0 bottom-0 left-[7px] w-px origin-top md:left-1/2 md:-translate-x-1/2"
+        />
 
         <div className="space-y-10">
           {experience.map((exp, i) => (
@@ -40,14 +51,18 @@ export default function ExperienceTimeline() {
                 i % 2 === 0 ? "md:pr-14 md:text-right md:ml-0" : "md:ml-auto md:pl-14"
               }`}
             >
-              <span
+              <motion.span
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ type: "spring", stiffness: 320, damping: 16, delay: 0.25 }}
                 className={`absolute left-0 top-2 h-3.5 w-3.5 -translate-x-[5px] rounded-full ring-4 ring-[#0a0a0f] md:left-auto ${
                   i % 2 === 0
                     ? "md:-right-[5px] md:left-auto md:translate-x-0"
                     : "md:-left-[5px] md:translate-x-0"
                 } ${dotClass[exp.accent]} ${exp.current ? "pulse-ring" : ""}`}
               />
-              <div className={`h-full rounded-2xl border border-white/5 bg-white/[0.015] p-6`}>
+              <div className="h-full rounded-2xl border border-white/5 bg-white/[0.015] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/25 hover:bg-white/[0.03] hover:shadow-[0_16px_48px_-20px_rgba(16,185,129,0.35)]">
                 <div className={`flex items-center gap-3 ${i % 2 === 0 ? "md:justify-end" : ""}`}>
                   <span className={`block h-10 w-1 rounded-full ${railClass[exp.accent]}`} />
                   <div className={i % 2 === 0 ? "md:order-first" : ""}>

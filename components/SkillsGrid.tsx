@@ -19,7 +19,7 @@ export default function SkillsGrid() {
         <Stagger className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((g) => (
             <StaggerItem key={g.title}>
-              <div className="glass glass-hover sheen h-full rounded-2xl p-7">
+              <div className="glass glass-hover sheen border-glow h-full rounded-2xl p-7">
                 <h3 className="heading text-base font-bold text-white">
                   {g.title}
                 </h3>
@@ -27,7 +27,7 @@ export default function SkillsGrid() {
                   {g.skills.map((s) => (
                     <span
                       key={s}
-                      className="rounded-full border border-white/5 bg-white/[0.03] px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-emerald-500/40 hover:text-white"
+                      className="chip-pop rounded-full border border-white/5 bg-white/[0.03] px-3 py-1.5 text-xs text-zinc-300 hover:border-emerald-500/40 hover:bg-emerald-500/10 hover:text-white"
                     >
                       {s}
                     </span>

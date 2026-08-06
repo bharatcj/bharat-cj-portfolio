@@ -58,7 +58,8 @@ export default function WorkShowcase() {
               >
                 <TiltCard
                   max={3}
-                  className="group glass glass-hover relative grid gap-6 overflow-hidden rounded-3xl p-8 md:grid-cols-[1.4fr_1fr] md:p-10"
+                  glare
+                  className="group glass glass-hover border-glow relative grid gap-6 overflow-hidden rounded-3xl p-8 md:grid-cols-[1.4fr_1fr] md:p-10"
                 >
                   <div
                     className={`pointer-events-none absolute -right-10 -top-10 h-56 w-56 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${glowClass[p.accent]}`}
@@ -103,7 +104,7 @@ export default function WorkShowcase() {
                             hidden: { opacity: 0, y: 10 },
                             visible: { opacity: 1, y: 0 },
                           }}
-                          className={`mono rounded-md border border-white/5 bg-white/[0.03] px-2.5 py-1 text-[11px] text-zinc-400 transition-colors ${accentChipHover[p.accent]}`}
+                          className={`mono chip-pop rounded-md border border-white/5 bg-white/[0.03] px-2.5 py-1 text-[11px] text-zinc-400 ${accentChipHover[p.accent]}`}
                         >
                           {t}
                         </motion.span>

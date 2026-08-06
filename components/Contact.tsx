@@ -1,5 +1,5 @@
 import { profile } from "@/data/profile";
-import { FadeIn } from "./motion";
+import { FadeIn, Magnetic } from "./motion";
 
 export default function Contact() {
   return (
@@ -18,28 +18,34 @@ export default function Contact() {
           and to conversations about leading teams that deliver.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href={`mailto:${profile.email}`}
-            className="rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-transform hover:scale-[1.04]"
-          >
-            {profile.email}
-          </a>
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass glass-hover rounded-full px-8 py-4 text-sm font-semibold text-zinc-200"
-          >
-            LinkedIn
-          </a>
-          <a
-            href={profile.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass glass-hover rounded-full px-8 py-4 text-sm font-semibold text-zinc-200"
-          >
-            GitHub
-          </a>
+          <Magnetic>
+            <a
+              href={`mailto:${profile.email}`}
+              className="pulse-ring inline-block rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-shadow hover:shadow-emerald-500/50"
+            >
+              {profile.email}
+            </a>
+          </Magnetic>
+          <Magnetic strength={0.2}>
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass glass-hover inline-block rounded-full px-8 py-4 text-sm font-semibold text-zinc-200"
+            >
+              LinkedIn
+            </a>
+          </Magnetic>
+          <Magnetic strength={0.2}>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass glass-hover inline-block rounded-full px-8 py-4 text-sm font-semibold text-zinc-200"
+            >
+              GitHub
+            </a>
+          </Magnetic>
         </div>
       </FadeIn>
     </section>

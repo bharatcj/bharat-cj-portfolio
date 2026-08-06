@@ -2,7 +2,9 @@
 
 import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 import { profile } from "@/data/profile";
-import { GlowOrb } from "./motion";
+import { GlowOrb, Magnetic, WordReveal } from "./motion";
+import ParticleField from "./ParticleField";
+import HeroObject from "./HeroObject";
 
 export default function Hero() {
   const reduce = useReducedMotion();
@@ -25,10 +27,12 @@ export default function Hero() {
       onMouseMove={onMove}
       className="relative flex min-h-screen items-center overflow-hidden"
     >
-      <div className="bg-grid absolute inset-0" />
+      <div className="bg-grid bg-grid-drift absolute inset-0" />
       <GlowOrb className="glow-emerald absolute -top-40 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full" />
       <GlowOrb className="glow-teal absolute top-1/3 -right-40 h-[30rem] w-[30rem] rounded-full" delay={3} />
       <GlowOrb className="glow-green absolute bottom-0 -left-32 h-[26rem] w-[26rem] rounded-full" delay={6} />
+      <ParticleField className="absolute inset-0 h-full w-full" />
+      <HeroObject />
 
       <motion.div
         className="pointer-events-none absolute inset-0"
@@ -41,7 +45,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
-          <div className="glass mb-8 inline-flex items-center gap-2 rounded-full px-4 py-2">
+          <div className="glass badge-shimmer mb-8 inline-flex items-center gap-2 rounded-full px-4 py-2">
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
@@ -53,14 +57,15 @@ export default function Hero() {
         </motion.div>
 
         <motion.h1
-          className="heading max-w-4xl text-5xl leading-[1.05] font-bold text-white sm:text-6xl md:text-7xl"
+          className="heading max-w-4xl text-5xl leading-[1.08] font-bold text-white sm:text-6xl md:text-7xl"
           style={{ x: sx, y: sy }}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.12, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
-          I build &amp; lead teams that ship{" "}
-          <span className="gradient-text">entire platforms.</span>
+          <WordReveal text="I build & lead teams that ship" delay={0.15} />{" "}
+          <WordReveal
+            text="entire platforms."
+            delay={0.62}
+            innerClassName="gradient-text"
+          />
         </motion.h1>
 
         <motion.p
@@ -78,19 +83,23 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.36, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
-          <a
-            href="#case-study"
-            className="rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-transform hover:scale-[1.04]"
-          >
-            See what I&apos;ve shipped
-          </a>
-          <a
-            href={profile.resumePath}
-            download
-            className="glass glass-hover rounded-full px-7 py-3.5 text-sm font-semibold text-zinc-200"
-          >
-            Download Resume
-          </a>
+          <Magnetic>
+            <a
+              href="#case-study"
+              className="inline-block rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-shadow hover:shadow-emerald-500/50"
+            >
+              See what I&apos;ve shipped
+            </a>
+          </Magnetic>
+          <Magnetic>
+            <a
+              href={profile.resumePath}
+              download
+              className="glass glass-hover inline-block rounded-full px-7 py-3.5 text-sm font-semibold text-zinc-200"
+            >
+              Download Resume
+            </a>
+          </Magnetic>
           <div className="ml-2 flex items-center gap-4 text-zinc-500">
             <a
               href={profile.github}

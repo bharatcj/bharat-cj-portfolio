@@ -28,15 +28,21 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6">
-        <a href="#top" className="heading text-lg font-bold text-white">
-          bharat<span className="gradient-text">.cj</span>
+        <a
+          href="#top"
+          className="heading group text-lg font-bold text-white transition-transform duration-300 hover:scale-105"
+        >
+          bharat
+          <span className="gradient-text inline-block transition-transform duration-300 group-hover:-translate-y-0.5">
+            .cj
+          </span>
         </a>
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm text-zinc-400 transition-colors hover:text-white"
+                className="nav-link text-sm text-zinc-400 transition-colors hover:text-white"
               >
                 {l.label}
               </a>

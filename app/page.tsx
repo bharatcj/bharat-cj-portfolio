@@ -1,4 +1,6 @@
 import Nav from "@/components/Nav";
+import ScrollProgress from "@/components/ScrollProgress";
+import CursorGlow from "@/components/CursorGlow";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import MetricsBand from "@/components/MetricsBand";
@@ -12,6 +14,8 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main>
+      <ScrollProgress />
+      <CursorGlow />
       <Nav />
       <Hero />
       <Marquee />

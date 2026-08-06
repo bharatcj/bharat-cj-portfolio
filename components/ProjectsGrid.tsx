@@ -38,9 +38,9 @@ export default function ProjectsGrid() {
       <Stagger className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((p) => (
           <StaggerItem key={p.name}>
-            <TiltCard max={4} className="h-full [transform-style:preserve-3d]">
+            <TiltCard max={4} glare className="relative h-full [transform-style:preserve-3d]">
               <article
-                className={`glass border-white/5 ${accentBorder[p.accent]} group relative flex h-full flex-col overflow-hidden rounded-2xl border p-7 transition-colors`}
+                className={`glass border-white/5 ${accentBorder[p.accent]} border-glow group relative flex h-full flex-col overflow-hidden rounded-2xl border p-7 transition-colors`}
               >
                 <div
                   className={`pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b opacity-60 ${accentGlow[p.accent]}`}
