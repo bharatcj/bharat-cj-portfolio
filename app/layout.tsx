@@ -27,7 +27,15 @@ export const metadata: Metadata = {
     "PHP",
     "React",
     "Flutter",
+    "Next.js",
+    "Fastify",
+    "PostgreSQL",
+    "Technical SEO",
+    "NEET.info",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Bharat CJ | Team Lead · Full-Stack & AI Engineering",
     description:
@@ -40,6 +48,32 @@ export const metadata: Metadata = {
   },
 };
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Bharat CJ",
+  alternateName: "Bharat Chejay J",
+  url: "https://bharatcj.tech",
+  jobTitle: "Team Lead, Full-Stack & AI Engineering",
+  email: "mailto:bharatchijay@gmail.com",
+  sameAs: [
+    "https://github.com/bharatcj",
+    "https://www.linkedin.com/in/bharat-cj/",
+  ],
+  knowsAbout: [
+    "Full-Stack Development",
+    "AI Engineering",
+    "Payment Systems",
+    "Technical SEO",
+    "Linux Infrastructure",
+    "Team Leadership",
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "IN",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -48,6 +82,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
         {children}
       </body>
     </html>

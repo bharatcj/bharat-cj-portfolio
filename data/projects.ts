@@ -6,12 +6,25 @@ export type Project = {
   accent: "emerald" | "teal" | "green";
   surface?: "Mobile App" | "Web App" | "Platform";
   personal?: boolean;
+  freelance?: boolean;
   link?: string;
   linkLabel?: string;
   playStore?: string;
 };
 
 export const projects: Project[] = [
+  {
+    name: "NEET.info",
+    tagline: "An AI operating system for NEET prep and medical counseling",
+    description:
+      "Solo-built and live: 21 tools spanning an AI coach that streams from a self-hosted LLM, study planner, mock analysis and rank predictor, then seat matrices, cut-off analysis, rank scan, round simulator, choice-list optimizer and a decision engine on the counseling side, covering AIQ and all 35 state quotas. A live NMC directory of 823 medical colleges and 129,602 seats refreshes nightly, MCC notices sync every 6 hours, and every advisory answer carries a 'why this result' explanation instead of a bare verdict.",
+    tech: ["Next.js", "Fastify", "TypeScript", "PostgreSQL", "Redis", "Ollama", "Dify AI"],
+    accent: "emerald",
+    surface: "Platform",
+    personal: true,
+    link: "https://neet.info",
+    linkLabel: "Visit site",
+  },
   {
     name: "SlotItUp",
     tagline: "Book any local service, your own platform, end to end",
@@ -87,6 +100,18 @@ export const projects: Project[] = [
     tech: ["Node.js", "Meta Cloud API", "Dify AI", "MySQL"],
     accent: "teal",
     surface: "Platform",
+  },
+  {
+    name: "Rudra Dental",
+    tagline: "A clinic website engineered to win local search",
+    description:
+      "Freelance build for a Chennai dental clinic: a fast static front end backed by a PHP practice-management API covering appointments, patients, treatments, prescriptions, invoices and staff, with WhatsApp notifications, PDF generation and a Meta lead webhook. The SEO work is the differentiator: Dentist-type JSON-LD with geo and opening hours, locality-targeted titles and metadata, Open Graph and Twitter cards, canonical URLs, forced-HTTPS 301s and GA4, putting the clinic on page one for its neighborhood searches.",
+    tech: ["PHP", "MySQL", "JavaScript", "JSON-LD", "GA4", "Meta Webhooks"],
+    accent: "teal",
+    surface: "Web App",
+    freelance: true,
+    link: "https://rudradental.com",
+    linkLabel: "Visit site",
   },
   {
     name: "Infrastructure Security Overhaul",

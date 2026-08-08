@@ -52,6 +52,11 @@ export default function ProjectsGrid() {
                       Personal Project
                     </span>
                   )}
+                  {p.freelance && (
+                    <span className="rounded-full border border-teal-400/30 bg-teal-500/10 px-2 py-0.5 text-[10px] font-semibold tracking-wider text-teal-300 uppercase">
+                      Freelance
+                    </span>
+                  )}
                   {p.surface && (
                     <span className="mono rounded-full border border-white/5 bg-white/[0.03] px-2 py-0.5 text-[10px] text-zinc-400">
                       {p.surface}
