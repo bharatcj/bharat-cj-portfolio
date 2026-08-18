@@ -11,5 +11,5 @@ export const profile = {
   tagline:
     "I lead engineering teams and ship entire platforms: payments, AI pipelines, secure infrastructure, and products that span web, mobile, and admin surfaces.",
   intro:
-    "8+ years across Python, PHP, React, Node and Flutter. Most recently led engineering at PartyWitty, India's party-booking platform, delivering across four product surfaces and the Linux infrastructure underneath them.",
+    "8+ years across Python, PHP, React, Node and Flutter. Most recently led engineering for a multi-surface booking platform, delivering across four product surfaces and the Linux infrastructure underneath them. Currently building NEET.info, a live AI platform for exam prep and counseling.",
 } as const;

@@ -1,10 +1,11 @@
 import { profile } from "@/data/profile";
+import Parallax from "./Parallax";
 import { FadeIn, Magnetic } from "./motion";
 
 export default function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden py-32">
-      <div className="glow-emerald absolute top-1/2 left-1/2 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full" />
+      <Parallax speed={45} className="glow-emerald absolute top-1/2 left-1/2 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full" />
       <FadeIn className="relative mx-auto max-w-3xl px-6 text-center">
         <p className="mono mb-4 text-sm tracking-[0.25em] text-emerald-400 uppercase">
           Contact

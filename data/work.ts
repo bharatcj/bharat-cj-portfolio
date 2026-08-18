@@ -28,7 +28,7 @@ export const workPillars: WorkPillar[] = [
     title: "Payment Systems & Transaction Engines",
     tagline: "Four gateways, one checkout, atomic settlement",
     blurb:
-      "Razorpay, Paytm, Stripe and Easebuzz unified behind a single checkout-and-verify flow. Rebuilt the deprecated Paytm server-to-server webhook, made payout settlement atomic across every transaction table, and enforced PartyWittyPay's co-funding wallet at the API layer across both Node and PHP.",
+      "Razorpay, Paytm, Stripe and Easebuzz unified behind a single checkout-and-verify flow. Rebuilt a deprecated server-to-server payment webhook, made payout settlement atomic across every transaction table, and enforced a co-funding wallet at the API layer across both Node and PHP.",
     stats: [
       { value: 4, label: "gateways, one checkout" },
       { value: 87, suffix: "%", label: "of backend commits owned" },

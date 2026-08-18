@@ -17,8 +17,8 @@ export const projects: Project[] = [
     name: "NEET.info",
     tagline: "An AI operating system for NEET prep and medical counseling",
     description:
-      "Solo-built and live: 21 tools spanning an AI coach that streams from a self-hosted LLM, study planner, mock analysis and rank predictor, then seat matrices, cut-off analysis, rank scan, round simulator, choice-list optimizer and a decision engine on the counseling side, covering AIQ and all 35 state quotas. A live NMC directory of 823 medical colleges and 129,602 seats refreshes nightly, MCC notices sync every 6 hours, and every advisory answer carries a 'why this result' explanation instead of a bare verdict.",
-    tech: ["Next.js", "Fastify", "TypeScript", "PostgreSQL", "Redis", "Ollama", "Dify AI"],
+      "Solo-built and live: 21 tools spanning an AI coach that streams from a self-hosted LLM over SSE, six Dify RAG agents grounding answers in counseling knowledge, a study planner, mock analysis and rank predictor, then seat matrices, cut-off analysis, rank scan, round simulator, choice-list optimizer and a decision engine, covering AIQ and all 35 state quotas. A live NMC directory of 823 medical colleges and 129,602 seats refreshes nightly, MCC notices sync every 6 hours, and every advisory answer carries a 'why this result' explanation instead of a bare verdict.",
+    tech: ["Next.js", "Fastify", "TypeScript", "PostgreSQL", "Redis", "Ollama", "Dify RAG"],
     accent: "emerald",
     surface: "Platform",
     personal: true,
@@ -57,10 +57,10 @@ export const projects: Project[] = [
     surface: "Mobile App",
   },
   {
-    name: "PartyWitty Platform",
+    name: "Venue & Events Booking Platform",
     tagline: "One booking platform, four product surfaces",
     description:
-      "India's party-booking platform: venue discovery, table & event bookings, group bookings and payouts. I led engineering across the React web app, Flutter customer and partner apps, and the CodeIgniter plus Node backends, authoring nearly half of all engineering commits.",
+      "A production party-and-venue booking platform: venue discovery, table & event bookings, group bookings and payouts. I led engineering across the React web app, Flutter customer and partner apps, and the CodeIgniter plus Node backends, authoring nearly half of all engineering commits.",
     tech: ["PHP", "Node.js", "React", "Flutter", "MySQL", "WebSockets"],
     accent: "emerald",
     surface: "Platform",

@@ -1,5 +1,6 @@
 import { skillGroups } from "@/data/skills";
 import SectionHeading from "./SectionHeading";
+import Parallax from "./Parallax";
 import { Stagger, StaggerItem } from "./motion";
 
 export default function SkillsGrid() {
@@ -8,7 +9,7 @@ export default function SkillsGrid() {
       id="skills"
       className="relative border-y border-white/5 bg-white/[0.015] py-28"
     >
-      <div className="glow-teal absolute right-0 bottom-0 h-[24rem] w-[24rem] rounded-full opacity-50" />
+      <Parallax speed={60} className="glow-teal absolute right-0 bottom-0 h-[24rem] w-[24rem] rounded-full opacity-50" />
       <div className="relative mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="Capabilities"

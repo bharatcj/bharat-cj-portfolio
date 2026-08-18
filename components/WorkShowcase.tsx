@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { workPillars, workIntro, type WorkPillar } from "@/data/work";
 import SectionHeading from "./SectionHeading";
+import Parallax from "./Parallax";
 import { CountUp, TiltCard } from "./motion";
 
 const railClass: Record<WorkPillar["accent"], string> = {
@@ -35,8 +36,8 @@ export default function WorkShowcase() {
       id="case-study"
       className="relative overflow-hidden border-y border-white/5 bg-white/[0.015] py-28"
     >
-      <div className="glow-emerald pointer-events-none absolute -top-32 left-1/4 h-[28rem] w-[28rem] rounded-full opacity-50" />
-      <div className="glow-teal pointer-events-none absolute bottom-0 -right-24 h-[26rem] w-[26rem] rounded-full opacity-40" />
+      <Parallax speed={70} className="glow-emerald pointer-events-none absolute -top-32 left-1/4 h-[28rem] w-[28rem] rounded-full opacity-50" />
+      <Parallax speed={-55} className="glow-teal pointer-events-none absolute bottom-0 -right-24 h-[26rem] w-[26rem] rounded-full opacity-40" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <SectionHeading
