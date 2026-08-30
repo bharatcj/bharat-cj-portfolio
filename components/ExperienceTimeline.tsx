@@ -53,6 +53,9 @@ export default function ExperienceTimeline() {
           }
         );
       });
+    }, rootRef);
+    const mm = gsap.matchMedia(rootRef);
+    mm.add("(min-width: 768px)", () => {
       gsap.utils.toArray<HTMLElement>(".tl-card").forEach((card) => {
         gsap.fromTo(
           card,
@@ -66,8 +69,26 @@ export default function ExperienceTimeline() {
           }
         );
       });
-    }, rootRef);
-    return () => ctx.revert();
+    });
+    mm.add("(max-width: 767px)", () => {
+      gsap.utils.toArray<HTMLElement>(".tl-card").forEach((card) => {
+        gsap.fromTo(
+          card,
+          { autoAlpha: 0, y: 36 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.75,
+            ease: "power3.out",
+            scrollTrigger: { trigger: card, start: "top 88%" },
+          }
+        );
+      });
+    });
+    return () => {
+      mm.revert();
+      ctx.revert();
+    };
   }, []);
 
   return (
