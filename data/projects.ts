@@ -17,8 +17,8 @@ export const projects: Project[] = [
     name: "NEET.info",
     tagline: "An AI operating system for NEET UG and PG counseling",
     description:
-      "Co-founded, with every line of engineering mine, and live in production: 22 tools across two strictly isolated tracks (NEET UG and NEET PG with INI-CET), an agentic coach streaming over SSE from self-hosted LLMs, and six Dify RAG agents grounding answers in counseling knowledge. The data layer parses column-major MCC allotment PDFs into 95,384 PG allotments and 62,691 seat records at 96.9% read accuracy, syncs UG round results hourly, and refreshes an 823-college NMC directory nightly. Sells courses over UPI with webhook-settled payments, ships every advisory answer with a 'why this result' explanation, and runs entirely on a self-administered VPS, with an Expo React Native app for both stores in development.",
-    tech: ["Next.js", "Fastify", "TypeScript", "PostgreSQL", "Redis", "Ollama", "Dify RAG", "Expo RN", "UPI Payments"],
+      "Co-founded, with every line of engineering mine, and live in production: 22 tools across two strictly isolated tracks (NEET UG and NEET PG with INI-CET), an agentic coach streaming over SSE from self-hosted LLMs behind four layers of scope guardrails, and six Dify RAG agents grounding answers in counseling knowledge. The data layer parses column-major MCC allotment PDFs into 95,384 PG allotments at 96.9% read accuracy, syncs UG round results hourly, and refreshes an 823-college NMC directory nightly. Sells courses over UPI with webhook-settled payments, and ships as an Expo React Native app on TestFlight and Play internal testing through Codemagic cloud CI, with iOS signed via the App Store Connect API without touching a Mac. Runs entirely on a self-administered VPS.",
+    tech: ["Next.js", "Fastify", "TypeScript", "PostgreSQL", "Redis", "Ollama", "Dify RAG", "Expo RN", "Codemagic", "UPI Payments"],
     accent: "emerald",
     surface: "Platform",
     personal: true,
