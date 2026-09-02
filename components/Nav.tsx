@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { profile } from "@/data/profile";
 
 const links = [
@@ -13,12 +14,60 @@ const links = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const ids = links.map((l) => l.href.slice(1));
+    const visible = new Set<string>();
+    const pick = () => {
+      let best: string | null = null;
+      let bestTop = Infinity;
+      for (const id of visible) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const top = Math.abs(el.getBoundingClientRect().top);
+        if (top < bestTop) {
+          bestTop = top;
+          best = id;
+        }
+      }
+      setActive(best);
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target.id);
+          else visible.delete(entry.target.id);
+        }
+        pick();
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    for (const id of ids) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+    const onScroll = () => {
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2
+      ) {
+        setActive(ids[ids.length - 1]);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
@@ -38,16 +87,35 @@ export default function Nav() {
           </span>
         </a>
         <ul className="hidden items-center gap-8 md:flex">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className="nav-link text-sm text-zinc-400 transition-colors hover:text-white"
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
+          {links.map((l) => {
+            const isActive = active === l.href.slice(1);
+            return (
+              <li key={l.href} className="relative">
+                <a
+                  href={l.href}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`text-sm transition-colors ${
+                    isActive
+                      ? "text-emerald-300"
+                      : "nav-link text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  {l.label}
+                </a>
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-lamp"
+                    className="absolute -bottom-[5px] left-0 h-px w-full bg-gradient-to-r from-emerald-400 to-teal-400 shadow-[0_0_10px_rgba(52,211,153,0.6)]"
+                    transition={
+                      reduce
+                        ? { duration: 0 }
+                        : { type: "spring", stiffness: 400, damping: 36 }
+                    }
+                  />
+                )}
+              </li>
+            );
+          })}
         </ul>
         <a
           href={profile.resumePath}

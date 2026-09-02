@@ -1,9 +1,15 @@
+"use client";
+
+import { useState } from "react";
 import { skillGroups } from "@/data/skills";
 import SectionHeading from "./SectionHeading";
 import Parallax from "./Parallax";
+import StackDiorama from "./StackDiorama";
 import { Stagger, StaggerItem } from "./motion";
 
 export default function SkillsGrid() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   return (
     <section
       id="skills"
@@ -11,6 +17,7 @@ export default function SkillsGrid() {
     >
       <Parallax speed={60} className="glow-teal absolute right-0 bottom-0 h-[24rem] w-[24rem] rounded-full opacity-50" />
       <div className="relative mx-auto max-w-6xl px-6">
+        <StackDiorama groups={skillGroups.slice(0, 6)} activeIndex={activeIndex} />
         <SectionHeading
           eyebrow="Capabilities"
           title="The full stack, literally"
@@ -18,9 +25,13 @@ export default function SkillsGrid() {
         />
 
         <Stagger className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {skillGroups.map((g) => (
+          {skillGroups.map((g, i) => (
             <StaggerItem key={g.title}>
-              <div className="glass glass-hover sheen border-glow h-full rounded-2xl p-7">
+              <div
+                onMouseEnter={() => setActiveIndex(i < 6 ? i : null)}
+                onMouseLeave={() => setActiveIndex(null)}
+                className="glass glass-hover sheen border-glow h-full rounded-2xl p-7"
+              >
                 <h3 className="heading text-base font-bold text-white">
                   {g.title}
                 </h3>

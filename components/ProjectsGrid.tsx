@@ -15,9 +15,9 @@ const accentText: Record<Project["accent"], string> = {
 };
 
 const accentBorder: Record<Project["accent"], string> = {
-  emerald: "hover:border-emerald-500/40",
-  teal: "hover:border-teal-500/40",
-  green: "hover:border-green-500/40",
+  emerald: "group-hover:border-emerald-500/40",
+  teal: "group-hover:border-teal-500/40",
+  green: "group-hover:border-green-500/40",
 };
 
 const accentBtn: Record<Project["accent"], string> = {
@@ -35,18 +35,20 @@ export default function ProjectsGrid() {
         description="Production systems with real users and real stakes, not weekend demos."
       />
 
-      <Stagger className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <Stagger className="project-stage mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((p) => (
-          <StaggerItem key={p.name}>
-            <TiltCard max={4} glare className="relative h-full [transform-style:preserve-3d]">
-              <article
-                className={`glass border-white/5 ${accentBorder[p.accent]} border-glow group relative flex h-full flex-col overflow-hidden rounded-2xl border p-7 transition-colors`}
+          <StaggerItem key={p.name} className="project-cell">
+            <TiltCard max={4} glare depth className="group relative h-full rounded-2xl">
+              <div
+                className={`glass border-glow absolute inset-0 overflow-hidden rounded-2xl border border-white/5 transition-colors ${accentBorder[p.accent]}`}
               >
                 <div
                   className={`pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b opacity-60 ${accentGlow[p.accent]}`}
                 />
+              </div>
 
-                <div className="relative flex flex-wrap items-center gap-2">
+              <article className="relative flex h-full flex-col p-7 [transform-style:preserve-3d]">
+                <div className="z-lift-1 flex flex-wrap items-center gap-2">
                   {p.personal && (
                     <span className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold tracking-wider text-emerald-300 uppercase">
                       Personal Project
@@ -64,17 +66,19 @@ export default function ProjectsGrid() {
                   )}
                 </div>
 
-                <h3 className="heading relative mt-3 text-lg font-bold text-white">
-                  {p.name}
-                </h3>
-                <p className={`relative mt-1 text-sm font-medium ${accentText[p.accent]}`}>
-                  {p.tagline}
-                </p>
-                <p className="relative mt-4 flex-1 text-sm leading-relaxed text-zinc-400">
+                <div className="z-lift-2 mt-3">
+                  <h3 className="heading text-lg font-bold text-white">
+                    {p.name}
+                  </h3>
+                  <p className={`mt-1 text-sm font-medium ${accentText[p.accent]}`}>
+                    {p.tagline}
+                  </p>
+                </div>
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-zinc-400">
                   {p.description}
                 </p>
 
-                <div className="relative mt-6 flex flex-wrap gap-2">
+                <div className="z-lift-1 mt-6 flex flex-wrap gap-2">
                   {p.tech.map((t) => (
                     <span
                       key={t}
@@ -86,7 +90,7 @@ export default function ProjectsGrid() {
                 </div>
 
                 {(p.link || p.playStore) && (
-                  <div className="relative mt-6 flex flex-wrap gap-2">
+                  <div className="z-lift-3 mt-6 flex flex-wrap gap-2">
                     {p.link && (
                       <a
                         href={p.link}

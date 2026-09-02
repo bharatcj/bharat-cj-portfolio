@@ -44,9 +44,10 @@ export default function ExperienceTimeline() {
       gsap.utils.toArray<HTMLElement>(".tl-dot").forEach((dot) => {
         gsap.fromTo(
           dot,
-          { scale: 0 },
+          { scale: 0, z: 40 },
           {
             scale: 1,
+            z: 0,
             duration: 0.55,
             ease: "back.out(2.6)",
             scrollTrigger: { trigger: dot, start: "top 80%" },
@@ -57,13 +58,21 @@ export default function ExperienceTimeline() {
     const mm = gsap.matchMedia(rootRef);
     mm.add("(min-width: 768px)", () => {
       gsap.utils.toArray<HTMLElement>(".tl-card").forEach((card) => {
+        const left = card.dataset.side === "left";
         gsap.fromTo(
           card,
-          { autoAlpha: 0, x: card.dataset.side === "left" ? -56 : 56 },
+          {
+            autoAlpha: 0,
+            rotateY: left ? -34 : 34,
+            z: -70,
+            transformPerspective: 1200,
+            transformOrigin: left ? "right center" : "left center",
+          },
           {
             autoAlpha: 1,
-            x: 0,
-            duration: 0.85,
+            rotateY: 0,
+            z: 0,
+            duration: 0.9,
             ease: "power3.out",
             scrollTrigger: { trigger: card, start: "top 84%" },
           }

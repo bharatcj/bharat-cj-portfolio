@@ -1,6 +1,14 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useScroll,
+  useSpring,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
+import { useRef } from "react";
 import { profile } from "@/data/profile";
 import { GlowOrb, Magnetic, WordReveal } from "./motion";
 import ParticleField from "./ParticleField";
@@ -8,39 +16,78 @@ import HeroObject from "./HeroObject";
 
 export default function Hero() {
   const reduce = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
   const px = useMotionValue(0);
   const py = useMotionValue(0);
   const sx = useSpring(px, { stiffness: 120, damping: 20 });
   const sy = useSpring(py, { stiffness: 120, damping: 20 });
 
-  function onMove(e: React.MouseEvent<HTMLDivElement>) {
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const bgX = useTransform(sx, (v) => v * 2);
+  const badgeX = useTransform(sx, (v) => v * 6);
+  const h1X = useTransform(sx, (v) => v * 10);
+  const h1Y = useTransform(sy, (v) => v * 10);
+  const pX = useTransform(sx, (v) => v * 8);
+  const ctaX = useTransform(sx, (v) => v * 6);
+  const objX = useTransform(sx, (v) => v * -14);
+  const planeRY = useTransform(sx, (v) => v * 2);
+  const planeRX = useTransform(sy, (v) => v * -2);
+
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -110]);
+  const contentOpacity = useTransform(scrollYProgress, [0.45, 0.92], [1, 0]);
+  const bgScrollY = useTransform(scrollYProgress, [0, 1], [0, 48]);
+  const bgY = useTransform([sy, bgScrollY], (v) => (v[0] as number) * 2 + (v[1] as number));
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.35]);
+  const objScrollY = useTransform(scrollYProgress, [0, 1], [0, -140]);
+  const objY = useTransform([sy, objScrollY], (v) => (v[0] as number) * -14 + (v[1] as number));
+  const objScale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
+  const cueOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
+
+  function onMove(e: React.MouseEvent<HTMLElement>) {
     if (reduce) return;
-    const x = (e.clientX / window.innerWidth - 0.5) * 2;
-    const y = (e.clientY / window.innerHeight - 0.5) * 2;
-    px.set(x * 8);
-    py.set(y * 8);
+    px.set((e.clientX / window.innerWidth - 0.5) * 2);
+    py.set((e.clientY / window.innerHeight - 0.5) * 2);
   }
 
   return (
     <section
       id="top"
+      ref={sectionRef}
       onMouseMove={onMove}
       className="relative flex min-h-screen items-center overflow-hidden"
     >
-      <div className="bg-grid bg-grid-drift absolute inset-0" />
-      <GlowOrb className="glow-emerald absolute -top-40 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full" />
-      <GlowOrb className="glow-teal absolute top-1/3 -right-40 h-[30rem] w-[30rem] rounded-full" delay={3} />
-      <GlowOrb className="glow-green absolute bottom-0 -left-32 h-[26rem] w-[26rem] rounded-full" delay={6} />
+      <motion.div
+        className="absolute inset-0"
+        style={reduce ? undefined : { x: bgX, y: bgY, opacity: bgOpacity }}
+      >
+        <div className="bg-grid bg-grid-drift absolute -inset-8" />
+        <GlowOrb className="glow-emerald absolute -top-40 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full" />
+        <GlowOrb className="glow-teal absolute top-1/3 -right-40 h-[30rem] w-[30rem] rounded-full" delay={3} />
+        <GlowOrb className="glow-green absolute bottom-0 -left-32 h-[26rem] w-[26rem] rounded-full" delay={6} />
+      </motion.div>
       <ParticleField className="absolute inset-0 h-full w-full" />
-      <HeroObject />
+      <HeroObject style={reduce ? undefined : { x: objX, y: objY, scale: objScale }} />
 
       <motion.div
-        className="pointer-events-none absolute inset-0"
-        style={{ x: sx, y: sy }}
-      />
-
-      <div className="relative mx-auto w-full max-w-6xl px-6 pt-28 pb-20">
+        className="relative mx-auto w-full max-w-6xl px-6 pt-28 pb-20"
+        style={
+          reduce
+            ? undefined
+            : {
+                y: contentY,
+                opacity: contentOpacity,
+                rotateY: planeRY,
+                rotateX: planeRX,
+                transformPerspective: 1200,
+              }
+        }
+      >
         <motion.div
+          style={reduce ? undefined : { x: badgeX }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
@@ -58,7 +105,7 @@ export default function Hero() {
 
         <motion.h1
           className="heading max-w-4xl text-5xl leading-[1.08] font-bold text-white sm:text-6xl md:text-7xl"
-          style={{ x: sx, y: sy }}
+          style={reduce ? undefined : { x: h1X, y: h1Y }}
         >
           <WordReveal text="I build & lead teams that ship" delay={0.15} />{" "}
           <WordReveal
@@ -70,6 +117,7 @@ export default function Hero() {
 
         <motion.p
           className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-400"
+          style={reduce ? undefined : { x: pX }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.24, ease: [0.21, 0.47, 0.32, 0.98] }}
@@ -79,6 +127,7 @@ export default function Hero() {
 
         <motion.div
           className="mt-10 flex flex-wrap items-center gap-4"
+          style={reduce ? undefined : { x: ctaX }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.36, ease: [0.21, 0.47, 0.32, 0.98] }}
@@ -125,11 +174,12 @@ export default function Hero() {
             </a>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
 
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-zinc-600"
-        animate={{ y: [0, 8, 0] }}
+        style={reduce ? undefined : { opacity: cueOpacity }}
+        animate={reduce ? undefined : { y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6">

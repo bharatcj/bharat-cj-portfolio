@@ -16,6 +16,8 @@ export default function Home() {
     <main>
       <ScrollProgress />
       <CursorGlow />
+      <div aria-hidden="true" className="vignette" />
+      <div aria-hidden="true" className="grain" />
       <Nav />
       <Hero />
       <Marquee />

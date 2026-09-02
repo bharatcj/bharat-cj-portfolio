@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, type MotionStyle } from "framer-motion";
 
 const faces = [
   "translateZ(4.5rem)",
@@ -11,15 +11,16 @@ const faces = [
   "rotateX(-90deg) translateZ(4.5rem)",
 ];
 
-export default function HeroObject() {
+export default function HeroObject({ style }: { style?: MotionStyle }) {
   const reduce = useReducedMotion();
   if (reduce) return null;
 
   return (
     <motion.div
       aria-hidden="true"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
+      style={style}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 1.4, delay: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
       className="pointer-events-none absolute top-[16%] right-[6%] hidden lg:block"
     >

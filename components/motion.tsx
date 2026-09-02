@@ -7,6 +7,7 @@ import {
   useMotionValue,
   useSpring,
   useReducedMotion,
+  type Variants,
 } from "framer-motion";
 import { useEffect, useRef, type ReactNode } from "react";
 
@@ -124,11 +125,13 @@ export function TiltCard({
   className,
   max = 6,
   glare = false,
+  depth = false,
 }: {
   children: ReactNode;
   className?: string;
   max?: number;
   glare?: boolean;
+  depth?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
@@ -165,7 +168,12 @@ export function TiltCard({
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      style={{ rotateX: srx, rotateY: sry, transformPerspective: 1000 }}
+      style={{
+        rotateX: srx,
+        rotateY: sry,
+        transformPerspective: 1000,
+        ...(depth && !reduce ? { transformStyle: "preserve-3d" as const } : {}),
+      }}
       className={className}
     >
       {children}
@@ -176,6 +184,59 @@ export function TiltCard({
           className="pointer-events-none absolute inset-0 rounded-[inherit]"
         />
       )}
+    </motion.div>
+  );
+}
+
+export function DepthRise({
+  children,
+  className,
+  angle = -56,
+  y = 24,
+  duration = 0.7,
+  stagger,
+  nested = false,
+}: {
+  children: ReactNode;
+  className?: string;
+  angle?: number;
+  y?: number;
+  duration?: number;
+  stagger?: number;
+  nested?: boolean;
+}) {
+  const reduce = useReducedMotion();
+  const staggerProps = stagger
+    ? { when: "beforeChildren" as const, staggerChildren: stagger, delayChildren: 0.2 }
+    : {};
+  const variants: Variants = reduce
+    ? {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 0.4, ...staggerProps } },
+      }
+    : {
+        hidden: { opacity: 0, rotateX: angle, y },
+        visible: {
+          opacity: 1,
+          rotateX: 0,
+          y: 0,
+          transition: { duration, ease: [0.21, 0.47, 0.32, 0.98], ...staggerProps },
+        },
+      };
+  return (
+    <motion.div
+      className={className}
+      style={{ transformPerspective: 900, transformOrigin: "50% 100%" }}
+      variants={variants}
+      {...(nested
+        ? {}
+        : {
+            initial: "hidden" as const,
+            whileInView: "visible" as const,
+            viewport: { once: true, margin: "-80px" },
+          })}
+    >
+      {children}
     </motion.div>
   );
 }
